@@ -21,8 +21,15 @@ RUN npm run build
 
 FROM nginx:1.30-alpine3.23-slim
 
+ARG UID=1001
+
 COPY --from=build /frontend/dist/ /frontend/
+
 RUN apk add --no-cache curl
+RUN adduser -S -u ${UID} -G nginx frontend
 
 EXPOSE 80
+
+USER frontend
+
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD curl -fsS http://127.0.0.1 || exit 1
