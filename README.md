@@ -39,8 +39,18 @@ build-аргументы сборки образа:
 - VUE_APP_API_URL - префикс адреса API, по умолчанию /api/
 - NODE_ENV - режим сборки для Node, по умолчанию development
 
+Переменные окружения:
+
+- FRONTEND_CPUS - количество CPU для контейнера фронта
+- FRONTEND_MEMORY - объем памяти для контейнера фронта
+
 Ссылка на образ фронта: [krosy/docker-project-frontend:latest]https://hub.docker.com/repository/docker/krosy/docker-project-frontend/general
 
 ## Сборка бэка
+
+Переменные окружения:
+
+- BACKEND_CPUS - количество CPU для контейнера бэка
+- BACKEND_MEMORY - объем памяти для контейнера бэка
 
 Ссылка на образ бэка: [krosy/docker-project-backend:latest](https://hub.docker.com/repository/docker/krosy/docker-project-backend/general)

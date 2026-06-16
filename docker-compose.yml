@@ -13,8 +13,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "1"
-          memory: "256M"
+          cpus: ${FRONTEND_CPUS:-1}
+          memory: ${FRONTEND_MEMORY:-256M}
 
   backend:
     image: ${DOCKER_USER:-krosy}/docker-project-backend:latest
@@ -26,8 +26,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "1"
-          memory: "256M"
+          cpus: ${BACKEND_CPUS:-1}
+          memory: ${BACKEND_MEMORY:-256M}
 
 networks:
   bridge:
