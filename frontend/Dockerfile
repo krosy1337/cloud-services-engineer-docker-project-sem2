@@ -12,6 +12,7 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 
 WORKDIR /frontend
 
+
 COPY package.json package-lock.json ./
 
 RUN npm ci
@@ -20,6 +21,7 @@ RUN npm run build
 
 FROM nginx:1.30-alpine3.23-slim
 
+COPY nginx.conf /etc/nginx/
 COPY --from=build /frontend/dist/ /frontend/
 
 EXPOSE 80
