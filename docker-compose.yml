@@ -15,6 +15,12 @@ services:
         limits:
           cpus: ${FRONTEND_CPUS:-1}
           memory: ${FRONTEND_MEMORY:-256M}
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1 || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
 
   backend:
     image: ${DOCKER_USER:-krosy}/docker-project-backend:latest
@@ -28,6 +34,12 @@ services:
         limits:
           cpus: ${BACKEND_CPUS:-1}
           memory: ${BACKEND_MEMORY:-256M}
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8081/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
 
 networks:
   bridge:
