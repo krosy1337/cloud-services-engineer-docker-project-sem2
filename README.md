@@ -30,3 +30,17 @@ Frontend:
 | --------- | ------------------ | ------- |
 | Backend   | `pelmeni-backend`  | 17.43MB |
 | Frontend  | `pelmeni-frontend` | 14.5MB  |
+
+## Сборка фронта
+
+build-аргументы сборки образа:
+
+- BASE_URL - базовый URL для Vue Router, по умолчанию /
+- VUE_APP_API_URL - префикс адреса API, по умолчанию /api/
+- NODE_ENV - режим сборки для Node, по умолчанию development
+
+Ссылка на образ фронта: [krosy/docker-project-frontend:latest]https://hub.docker.com/repository/docker/krosy/docker-project-frontend/general
+
+## Сборка бэка
+
+Ссылка на образ бэка: [krosy/docker-project-backend:latest](https://hub.docker.com/repository/docker/krosy/docker-project-backend/general)
